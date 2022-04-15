@@ -1,8 +1,8 @@
 const app = require('express')();
 const http = require('http').Server(app);
-const io = require('socket.io')(http, {path: "/ot_sample/socket.io"});
+const io = require('socket.io')(http, {path: "/sample_ot/socket.io"});
 
-app.get('/ot_sample/', function(req, res){
+app.get('/sample_ot/', function(req, res){
   res.sendFile(__dirname + '/index.html');
 });
 

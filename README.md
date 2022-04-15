@@ -27,15 +27,15 @@ node server.js
 
 ## 動作シーケンス
 
-サーバ起動後 http://localhost:3000/ot_sample にアクセスすると、テキストエディタが表示されます。テキストエディタへの編集は即時に反映され、その内容がサーバにも送られます。サーバでは今までの編集履歴を考慮して編集操作を変換し、ブラウザに送ります。ブラウザでも必要に応じて変換操作が行われ、反映されます。この操作の変換により、複数人で同時に編集しても、結果が同じになります。
+サーバ起動後 http://localhost:3000/sample_ot にアクセスすると、テキストエディタが表示されます。テキストエディタへの編集は即時に反映され、その内容がサーバにも送られます。サーバでは今までの編集履歴を考慮して編集操作を変換し、ブラウザに送ります。ブラウザでも必要に応じて変換操作が行われ、反映されます。この操作の変換により、複数人で同時に編集しても、結果が同じになります。
 
 ```mermaid
 sequenceDiagram
-    Browser->>+Server: GET /
+    Browser->>+Server: GET /sample_ot
     Server->>+Browser: index.html
-    Browser->>+Server: GET /socket.io/socket.io.js
+    Browser->>+Server: GET /sample_ot/socket.io/socket.io.js
     Server->>+Browser: socket.io.js
-    Browser->>+Server: GET /socket.io/?... (websocket connection)
+    Browser->>+Server: GET /sample_ot/socket.io/?... (websocket connection)
     Server->>+Browser: HTTP 101 OK (start websocket)
     Browser-->>Server: send(編集情報)
     Server-->>Browser: recv(変換された編集情報)

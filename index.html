@@ -15,7 +15,7 @@ window.addEventListener("load", ()=>{
   const cm = CodeMirror.fromTextArea(
     document.getElementById("editor"),
     {lineNumbers: true})
-  const socket = io({path: '/ot_sample/socket.io/'});
+  const socket = io({path: '/sample_ot/socket.io/'});
   socket.on('doc', function(data) {
     cm.setValue(data.str)
     const adapter = new ot.SocketIOAdapter(socket);
