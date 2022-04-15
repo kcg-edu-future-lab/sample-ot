@@ -1,0 +1,12 @@
+{
+  "name": "ot_sample",
+  "version": "0.0.1",
+  "description": "",
+  "main": "server.js",
+  "author": "Takao Nakaguchi",
+  "dependencies": {
+    "express": "^4.15.4",
+    "ot": "0.0.15",
+    "socket.io": "^2.0.3"
+  }
+}

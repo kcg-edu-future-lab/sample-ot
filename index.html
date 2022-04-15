@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>ot.js sample</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.29.0/codemirror.css">
+<script src="socket.io/socket.io.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.29.0/codemirror.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ot.js/0.0.15/ot-min.js"></script>
+</head>
+<body>
+<textarea id="editor"></textarea>
+<script>
+window.addEventListener("load", ()=>{
+  const cm = CodeMirror.fromTextArea(
+    document.getElementById("editor"),
+    {lineNumbers: true})
+  const socket = io({path: '/ot_sample/socket.io/'});
+  socket.on('doc', function(data) {
+    cm.setValue(data.str)
+    const adapter = new ot.SocketIOAdapter(socket);
+    const cmAdapter = new ot.CodeMirrorAdapter(cm);
+    new ot.EditorClient(data.revision, data.clients, adapter, cmAdapter);
+  });
+});
+</script>
+</body>
+</html>
