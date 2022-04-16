@@ -4,9 +4,9 @@
 <meta charset="UTF-8" />
 <title>ot.js sample</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.29.0/codemirror.css">
-<script src="socket.io/socket.io.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.29.0/codemirror.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ot.js/0.0.15/ot-min.js"></script>
+<script src="socket.io/socket.io.js"></script>
+<script src="ot-min.js"></script>
 </head>
 <body>
 <textarea id="editor"></textarea>
@@ -15,7 +15,7 @@ window.addEventListener("load", ()=>{
   const cm = CodeMirror.fromTextArea(
     document.getElementById("editor"),
     {lineNumbers: true})
-  const socket = io({path: '/sample_ot/socket.io/'});
+  const socket = io({path: '/sample-ot/socket.io/'});
   socket.on('doc', function(data) {
     cm.setValue(data.str)
     const adapter = new ot.SocketIOAdapter(socket);

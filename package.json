@@ -6,7 +6,7 @@
   "author": "Takao Nakaguchi",
   "dependencies": {
     "express": "^4.15.4",
-    "ot": "0.0.15",
-    "socket.io": "^2.0.3"
+    "ot": "github:operational-transformation/ot.js#c984021d1e936e82466837d0e1718c07868040ae",
+    "socket.io": "^2.4.0"
   }
 }

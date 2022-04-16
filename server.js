@@ -1,9 +1,15 @@
 const app = require('express')();
 const http = require('http').Server(app);
-const io = require('socket.io')(http, {path: "/sample_ot/socket.io"});
+const io = require('socket.io')(http, {path: "/sample-ot/socket.io"});
 
-app.get('/sample_ot/', function(req, res){
+app.get('/sample-ot/', function(req, res){
   res.sendFile(__dirname + '/index.html');
+});
+app.get('/sample-ot/ot.js', function(req, res){
+  res.sendFile(__dirname + '/ot.js');
+});
+app.get('/sample-ot/ot-min.js', function(req, res){
+  res.sendFile(__dirname + '/ot-min.js');
 });
 
 http.listen(3000, function(){
